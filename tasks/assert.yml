@@ -97,7 +97,7 @@
       - auditd_num_logs is defined
       - auditd_num_logs | int
       - auditd_num_logs | int > 0
-      - auditd_num_logs | int < 99
+      - auditd_num_logs | int < 999
     quiet: yes
 
 - name: test if auditd_priority_boost is set correctly
