@@ -1,8 +1,10 @@
 ---
 # tasks file for auditd
+
 - name: include assert.yml
-  include_tasks: assert.yml
+  import_tasks: assert.yml
   run_once: yes
+  delegate_to: localhost
 
 - name: install requirements
   package:
@@ -32,11 +34,11 @@
   template:
     src: custom.rules.j2
     dest: "{{ auditd_config_directory }}/rules.d/custom.rules"
-    mode: "0666"
+    mode: "0664"
   notify:
     - run augenrules
   when:
-    - auditd_manage_rules
+    - auditd_manage_rules | bool
 
 - name: start and enable auditd
   service:
