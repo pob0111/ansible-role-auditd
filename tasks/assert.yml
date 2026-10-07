@@ -103,7 +103,7 @@
       - auditd_num_logs is defined
       - auditd_num_logs is number
       - auditd_num_logs > 0
-      - auditd_num_logs < 99
+      - auditd_num_logs < 999
     quiet: true
 
 - name: assert | Test auditd_priority_boost
